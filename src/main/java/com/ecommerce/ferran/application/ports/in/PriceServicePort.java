@@ -1,8 +1,8 @@
 package com.ecommerce.ferran.application.ports.in;
 
-import com.ecommerce.ferran.domain.model.Price;
+import com.ecommerce.ferran.infrastructure.adapters.in.controller.dto.PriceDto;
 import java.time.LocalDateTime;
 
 public interface PriceServicePort {
-    Price getApplicablePrice(Long brandId, Long productId, LocalDateTime applicationDate);
+    PriceDto getApplicablePrice(Long brandId, Long productId, LocalDateTime applicationDate);
 }

@@ -1,11 +1,9 @@
 package com.ecommerce.ferran.infrastructure.adapters.in.controller;
 
 import com.ecommerce.ferran.application.ports.in.PriceServicePort;
-import com.ecommerce.ferran.domain.model.Price;
-import com.ecommerce.ferran.infrastructure.adapters.in.controller.mapper.PriceDtoMapper;
 import com.ecommerce.ferran.infrastructure.adapters.in.controller.dto.PriceDto;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalDateTime;
 
 @RestController
@@ -20,12 +18,11 @@ public class PriceRestControllerImpl implements PriceRestController {
 
     @Override
     @GetMapping
-    public PriceDto getPrice(@RequestParam Long brandId,
+    public ResponseEntity<PriceDto> getPrice(@RequestParam Long brandId,
                              @RequestParam Long productId,
                              @RequestParam LocalDateTime date
     ) {
-        Price price = priceService.getApplicablePrice(brandId, productId, date);
-        return PriceDtoMapper.INSTANCE.priceToPriceDTO(price);
+        return ResponseEntity.ok(priceService.getApplicablePrice(brandId, productId, date));
     }
 
 }

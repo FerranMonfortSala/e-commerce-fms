@@ -47,4 +47,6 @@ si trabajara directamente con JPA (o Hibernate) ORM.
 6. Solo he declarado la entidad Price. Podría haber declarado Brand con una relación ManyToOne (las tiendas tendrán varios precios),
 alguna entidad Currency (con una declaración de las posibles unidades monetarias)... etc. En este ejercicio no era necesario.
 
+7. No he parseado las respuestas de error en un formato objeto json. Podría hacerse con un formato definido, pero devuelvo directamente un String con el mensaje de error.
+
 

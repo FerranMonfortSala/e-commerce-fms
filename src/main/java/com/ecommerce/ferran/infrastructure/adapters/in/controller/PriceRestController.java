@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -26,8 +27,8 @@ public interface PriceRestController {
                     content = @Content)
     })
     @GetMapping
-    PriceDto getPrice(@RequestParam Long brandId,
-                      @RequestParam Long productId,
-                      @Parameter(description = "Date in the format yyyy-MM-dd'T'HH:mm:ss", example = "2020-06-14T14:30:00") @RequestParam LocalDateTime date
+    ResponseEntity<PriceDto> getPrice(@RequestParam Long brandId,
+                                      @RequestParam Long productId,
+                                      @Parameter(description = "Date in the format yyyy-MM-dd'T'HH:mm:ss", example = "2020-06-14T14:30:00") @RequestParam LocalDateTime date
     );
 }
